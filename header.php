@@ -11,11 +11,11 @@
 
 <body <?php body_class( 'bg-white text-gray-900 antialiased' ); ?>>
 
-<?php do_action( 'pj_wp_theme_site_before' ); ?>
+<?php do_action( 'aocuoi_site_before' ); ?>
 
 <div id="page" class="min-h-screen flex flex-col">
 
-	<?php do_action( 'pj_wp_theme_header' ); ?>
+	<?php do_action( 'aocuoi_header' ); ?>
 
 	<header>
 
@@ -89,6 +89,6 @@
 			<!-- End introduction -->
 		<?php } ?>
 
-		<?php do_action( 'pj_wp_theme_content_start' ); ?>
+		<?php do_action( 'aocuoi_content_start' ); ?>
 
 		<main>

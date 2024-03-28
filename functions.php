@@ -3,7 +3,7 @@
 /**
  * Theme setup.
  */
-function pj_wp_theme_setup() {
+function aocuoi_setup() {
 	add_theme_support( 'title-tag' );
 
 	register_nav_menus(
@@ -33,19 +33,19 @@ function pj_wp_theme_setup() {
 	add_editor_style( 'css/editor-style.css' );
 }
 
-add_action( 'after_setup_theme', 'pj_wp_theme_setup' );
+add_action( 'after_setup_theme', 'aocuoi_setup' );
 
 /**
  * Enqueue theme assets.
  */
-function pj_wp_theme_enqueue_scripts() {
+function aocuoi_enqueue_scripts() {
 	$theme = wp_get_theme();
 
-	wp_enqueue_style( 'tailpress', pj_wp_theme_asset( 'css/app.css' ), array(), $theme->get( 'Version' ) );
-	wp_enqueue_script( 'tailpress', pj_wp_theme_asset( 'js/app.js' ), array(), $theme->get( 'Version' ) );
+	wp_enqueue_style( 'tailpress', aocuoi_asset( 'css/app.css' ), array(), $theme->get( 'Version' ) );
+	wp_enqueue_script( 'tailpress', aocuoi_asset( 'js/app.js' ), array(), $theme->get( 'Version' ) );
 }
 
-add_action( 'wp_enqueue_scripts', 'pj_wp_theme_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'aocuoi_enqueue_scripts' );
 
 /**
  * Get asset path.
@@ -54,7 +54,7 @@ add_action( 'wp_enqueue_scripts', 'pj_wp_theme_enqueue_scripts' );
  *
  * @return string
  */
-function pj_wp_theme_asset( $path ) {
+function aocuoi_asset( $path ) {
 	if ( wp_get_environment_type() === 'production' ) {
 		return get_stylesheet_directory_uri() . '/' . $path;
 	}
@@ -71,7 +71,7 @@ function pj_wp_theme_asset( $path ) {
  *
  * @return array
  */
-function pj_wp_theme_nav_menu_add_li_class( $classes, $item, $args, $depth ) {
+function aocuoi_nav_menu_add_li_class( $classes, $item, $args, $depth ) {
 	if ( isset( $args->li_class ) ) {
 		$classes[] = $args->li_class;
 	}
@@ -83,7 +83,7 @@ function pj_wp_theme_nav_menu_add_li_class( $classes, $item, $args, $depth ) {
 	return $classes;
 }
 
-add_filter( 'nav_menu_css_class', 'pj_wp_theme_nav_menu_add_li_class', 10, 4 );
+add_filter( 'nav_menu_css_class', 'aocuoi_nav_menu_add_li_class', 10, 4 );
 
 /**
  * Adds option 'submenu_class' to 'wp_nav_menu'.
@@ -94,7 +94,7 @@ add_filter( 'nav_menu_css_class', 'pj_wp_theme_nav_menu_add_li_class', 10, 4 );
  *
  * @return array
  */
-function pj_wp_theme_nav_menu_add_submenu_class( $classes, $args, $depth ) {
+function aocuoi_nav_menu_add_submenu_class( $classes, $args, $depth ) {
 	if ( isset( $args->submenu_class ) ) {
 		$classes[] = $args->submenu_class;
 	}
@@ -106,4 +106,4 @@ function pj_wp_theme_nav_menu_add_submenu_class( $classes, $args, $depth ) {
 	return $classes;
 }
 
-add_filter( 'nav_menu_submenu_css_class', 'pj_wp_theme_nav_menu_add_submenu_class', 10, 3 );
+add_filter( 'nav_menu_submenu_css_class', 'aocuoi_nav_menu_add_submenu_class', 10, 3 );
