@@ -1,5 +1,7 @@
 /node_modules
 /.idea
 /.vscode
+/*copy.php
+/*.html
 /css
 /js
