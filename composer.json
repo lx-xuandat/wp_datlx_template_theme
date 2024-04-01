@@ -1,0 +1,15 @@
+{
+    "name": "datlx/theme_avaocuoi",
+    "autoload": {
+        "psr-4": {
+            "Datlx\\Avaocuoi\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "datlx",
+            "email": "datlx@yahoo.com"
+        }
+    ],
+    "require": {}
+}

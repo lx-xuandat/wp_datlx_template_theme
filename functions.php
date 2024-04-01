@@ -107,3 +107,19 @@ function aocuoi_nav_menu_add_submenu_class( $classes, $args, $depth ) {
 }
 
 add_filter( 'nav_menu_submenu_css_class', 'aocuoi_nav_menu_add_submenu_class', 10, 3 );
+
+function info($message) {
+    // Đường dẫn tới tệp log (thay đổi đường dẫn tùy thuộc vào nơi bạn muốn lưu log)
+    $log_file = __DIR__ . '/file.log';
+    
+    // Nội dung log
+    $log_entry = date('Y-m-d H:i:s') . ' - ' . $message . PHP_EOL;
+
+    // Ghi log vào tệp
+    file_put_contents($log_file, $log_entry, FILE_APPEND);
+}
+
+(function () {
+	require __DIR__ . '/vendor/autoload.php';
+	new Datlx\Avaocuoi\Main();
+})();
