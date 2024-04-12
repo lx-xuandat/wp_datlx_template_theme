@@ -7,3 +7,5 @@
 /js
 *.log
 /vendor
+./assets/css
+./assets/js

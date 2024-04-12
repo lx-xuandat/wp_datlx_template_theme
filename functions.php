@@ -1,5 +1,7 @@
 <?php
 
+require_once(dirname(__FILE__) ."/libraries/menu/main.php");
+
 /**
  * Theme setup.
  */
