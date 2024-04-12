@@ -1,14 +1,19 @@
 <?php
 
+define('DATLX_THEME_PATH', dirname(__FILE__));
+
 /**
  * Theme setup.
  */
 function aocuoi_setup() {
 	add_theme_support( 'title-tag' );
 
+	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'primary' => __( 'Primary Menu', 'tailpress' ),
+			'primary' => __( 'Primary Menu', 'datlx' ),
+			'second' => __( 'Second Menu', 'datlx' ),
+			'footer' => __( 'Footer Menu', 'datlx' ),
 		)
 	);
 
@@ -79,11 +84,45 @@ function aocuoi_nav_menu_add_li_class( $classes, $item, $args, $depth ) {
 	if ( isset( $args->{"li_class_$depth"} ) ) {
 		$classes[] = $args->{"li_class_$depth"};
 	}
+	
+	if ( in_array( 'menu-item-has-children', $item->classes ) ) {
+        $classes[] = 'nav-item dropdown';
+    }
 
 	return $classes;
 }
 
 add_filter( 'nav_menu_css_class', 'aocuoi_nav_menu_add_li_class', 10, 4 );
+
+function add_menu_link_class($atts, $item, $args)
+{
+    // Kiểm tra xem mục menu có phải là một mục con của menu dropdown không
+    if (in_array('menu-item-has-children', $item->classes) && $args->depth === 0) {
+        // Nếu là mục cha của menu dropdown, thêm các thuộc tính cho dropdown
+        $atts['class'] = 'nav-link nav-item dropdown-toggle';
+        $atts['data-bs-toggle'] = 'dropdown';
+        $atts['aria-expanded'] = 'false';
+    } else {
+        // Nếu không phải là mục cha hoặc mục con của menu dropdown, chỉ thêm class cho liên kết
+        $atts['class'] = 'nav-link nav-item';
+    }
+
+	if ($item->menu_item_parent !== '0') {
+        // Nếu là mục con của một mục cha, thêm lớp 'dropdown-item'
+        $atts['class'] = 'dropdown-item';
+    }
+
+    if($item->current) {
+		// echo '<pre>';
+		// var_dump($item);
+        $atts['class'] .= ' active';
+    }
+
+	$args->submenu_class = 'dropdown-menu';
+
+    return $atts;
+}
+add_filter('nav_menu_link_attributes', 'add_menu_link_class', 1, 3);
 
 /**
  * Adds option 'submenu_class' to 'wp_nav_menu'.

@@ -2,4 +2,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities"; */
 
-/* @import "custom.css"; */
+@import "../themes/bootstrap.min.css";
+@import "../themes/style.css";
+@import "custom-nav.scss";
+@import "editor-style.css";

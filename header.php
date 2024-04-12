@@ -48,12 +48,34 @@
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
                     <h1 class="m-0"><i class="fa fa-search me-2"></i>SEO<span class="fs-5">Master</span></h1>
-                    <!-- <img src="/assets/img/logo.png" alt="Logo"> -->
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
                 </button>
+                
                 <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <?php wp_nav_menu([
+                        'menu'                 => '',
+                        'container'            => '',
+                        'container_class'      => '',
+                        'container_id'         => '',
+                        'container_aria_label' => '',
+                        'menu_class'           => '',
+                        'menu_id'              => '',
+                        'echo'                 => true,
+                        'fallback_cb'          => 'false',
+                        'before'               => '',
+                        'after'                => '',
+                        'link_before'          => '',
+                        'link_after'           => '',
+                        'items_wrap'           => '<ul id="%1$s" class="navbar-nav ms-auto py-0 %2$s">%3$s</ul>',
+                        'item_spacing'         => 'preserve',
+                        'depth'                => 0,
+                        'walker'               => '',
+                        'theme_location'       => 'primary',
+                    ]) ?>
+                    <!-- todo: delete
                     <div class="navbar-nav ms-auto py-0">
                         <a href="index.html" class="nav-item nav-link active">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
@@ -69,9 +91,26 @@
                         </div>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
+                    -->
                     <butaton type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
                     <a href="https://buimanhduc.com" class="btn btn-secondary text-light rounded-pill py-2 px-4 ms-3">Bùi Mạnh Đức</a>
                 </div>
             </nav>
 
-            
+            <div class="container-xxl py-5 bg-primary hero-header mb-5">
+                <div class="container my-5 py-5 px-lg-5">
+                    <div class="row g-5 py-5">
+                        <div class="col-lg-6 text-center text-lg-start">
+                            <h1 class="text-white mb-4 animated zoomIn">All in one SEO tool need to grow your business rapidly</h1>
+                            <p class="text-white pb-3 animated zoomIn">Tempor rebum no at dolore lorem clita rebum rebum ipsum rebum stet dolor sed justo kasd. Ut dolor sed magna dolor sea diam. Sit diam sit justo amet ipsum vero ipsum clita lorem</p>
+                            <a href="" class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Free Quote</a>
+                            <a href="" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Contact Us</a>
+                        </div>
+                        <div class="col-lg-6 text-center text-lg-start">
+                            <img class="img-fluid" src="/assets/img/hero.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar & Hero End -->
