@@ -4,5 +4,5 @@
 
 @import "../themes/bootstrap.min.css";
 @import "../themes/style.css";
-@import "custom.scss";
+@import "custom-nav.scss";
 @import "editor-style.css";
